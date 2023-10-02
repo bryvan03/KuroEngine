@@ -1,12 +1,19 @@
 #include "Game.h"
 #include "TextureManager.h"
-#include "GameObject.h"
+#include "Map.h"
+
+#include "Components.h"
+
 #include <iostream>
 
-GameObject* player;
 
 SDL_Texture* playerTex;
-SDL_Rect srcR, destR;
+Map* map;
+
+SDL_Renderer* Game::renderer = nullptr;
+
+Manager manager;
+auto& player(manager.addEntity());
 
 Game::Game() {
 
@@ -39,7 +46,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = true;
 	}
 
-	player = new GameObject("assets//monkey.png", renderer, 0,0);
+	map = new Map();
+	player.addComponent<PositionComponent>();
+	player.addComponent<SpriteComponent>("assets/monkey.png");
 }
 
 void Game::handleEvents() {
@@ -55,16 +64,23 @@ void Game::handleEvents() {
 	}
 }
 void Game::update() {
-	player->Update();
+	manager.refresh();
+	manager.update();
+
+	if (player.getComponent<PositionComponent>().x() > 100)
+	{
+		player.getComponent<SpriteComponent>().setTex("assets/plane.png");
+	}
 }
 void Game::render() {
-	SDL_RenderClear(renderer);
-	player->Render();
-	SDL_RenderPresent(renderer);
+	SDL_RenderClear(Game::renderer);
+	map->DrawMap();
+	manager.draw();
+	SDL_RenderPresent(Game::renderer);
 }
 void Game::clean() {
 	SDL_DestroyWindow(window);
-	SDL_DestroyRenderer(renderer);
+	SDL_DestroyRenderer(Game::renderer);
 	SDL_Quit();
 	std::cout << "Game Cleaned" << std::endl;
 }

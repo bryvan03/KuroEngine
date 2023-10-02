@@ -5,10 +5,9 @@
 bool goLeft = true;
 bool goDown = true;
 
-GameObject::GameObject(const char* texturesheet, SDL_Renderer* ren, int x, int y)
+GameObject::GameObject(const char* texturesheet,  int x, int y)
 {
-	renderer = ren;
-	objTexture = TextureManager::LoadTexture(texturesheet, ren);
+	objTexture = TextureManager::LoadTexture(texturesheet);
 
 	xpos = x;
 	ypos = y;
@@ -17,47 +16,20 @@ GameObject::GameObject(const char* texturesheet, SDL_Renderer* ren, int x, int y
 void GameObject::Update() 
 {
 
-	if (!goLeft)
-	{
-		xpos -= 1;
-	}
-	else if (goLeft)
-	{
-		xpos += 1;
-	}
+	if (!goLeft) {xpos -= 1;}
+	else if (goLeft) {xpos += 1;}
 
-	if (!goDown)
-	{
-		ypos -= 1;
-	}
-	else if (goDown)
-	{
-		ypos += 1;
-	}
-	if (xpos >= 768)
-	{
-		goLeft = false;
-	}
-	else if (xpos <= 0)
-	{
-		goLeft = true;
-	}
-	if (ypos >= 568)
-	{
-		goDown = false;
+	if (!goDown) { ypos -= 1; }
+	else if (goDown) {ypos += 1;}
 
-	}
-	else if (ypos <= 0)
-	{
-		goDown = true;
-	}
+	if (xpos >= 768) {goLeft = false;}
+	else if (xpos <= 0) {goLeft = true;}
+	
+	if (ypos >= 568) {goDown = false;}
+	else if (ypos <= 0) {goDown = true;}
 
-	std::cout << xpos << " " << ypos << " " << goLeft << " " << goDown << std::endl;
-
-	srcRect.h = 32;
-	srcRect.w = 32;
-	srcRect.x = 0;
-	srcRect.y = 0;
+	srcRect.h = srcRect.w = 32;
+	srcRect.x = srcRect.y = 0;
 
 	destRect.x = xpos;
 	destRect.y = ypos;
@@ -67,5 +39,5 @@ void GameObject::Update()
 
 void GameObject::Render()
 {
-	SDL_RenderCopy(renderer, objTexture, &srcRect, &destRect);
+	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
 }
