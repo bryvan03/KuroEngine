@@ -138,24 +138,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Map.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Components.h" />
-    <ClInclude Include="PositionComponents.h" />
-    <ClInclude Include="ECS.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="assets\monkey.png" />
-    <Image Include="assets\plane.png" />
+    <Image Include="assets\player1.png" />
+    <Image Include="assets\player1wins.png" />
+    <Image Include="assets\player2.png" />
+    <Image Include="assets\player2wins.png" />
+    <Image Include="assets\TTT_MainMenu.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

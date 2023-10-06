@@ -16,9 +16,6 @@
     <Filter Include="assets">
       <UniqueIdentifier>{e8919786-e984-40bf-b7ca-f8bbe894511e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ECS">
-      <UniqueIdentifier>{e825d6e5-8bb1-475e-b597-8b97f064f49d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -30,12 +27,6 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -44,30 +35,21 @@
     <ClInclude Include="TextureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PositionComponents.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="Components.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteComponent.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="assets\monkey.png">
+    <Image Include="assets\TTT_MainMenu.png">
       <Filter>assets</Filter>
     </Image>
-    <Image Include="assets\plane.png">
+    <Image Include="assets\player1wins.png">
+      <Filter>assets</Filter>
+    </Image>
+    <Image Include="assets\player1.png">
+      <Filter>assets</Filter>
+    </Image>
+    <Image Include="assets\player2.png">
+      <Filter>assets</Filter>
+    </Image>
+    <Image Include="assets\player2wins.png">
       <Filter>assets</Filter>
     </Image>
   </ItemGroup>
